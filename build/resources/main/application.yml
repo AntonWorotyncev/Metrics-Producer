@@ -1,0 +1,18 @@
+kafka:
+  producer:
+    bootstrap-servers: localhost:29092
+    group-id: metrics-consumer-group
+    auto-offset-reset: earliest
+    value-deserializer: org.springframework.kafka.support.serializer.JsonSerializer
+    properties:
+      isolation.level: read_committed
+  listener:
+    type: batch
+spring:
+  application:
+    name: MetricsProducerApplication
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "metrics"
