@@ -1,25 +1,27 @@
 package com.openschoolt1.metricsconsumer.model;
 
-import lombok.*;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.Getter;
 
 @Setter
 @Getter
 @NoArgsConstructor
 public class Metric {
     /*
-Идентификатор метрики
- */
+    Идентификатор метрики
+    */
     private Long id;
     /*
     Временная метка
     */
     private Long timestamp;
     /*
-      Использование памяти JVM
-     */
+    Использование памяти JVM
+    */
     private Long jvmMemoryUsed;
     /*
-     максимальная память JVM
+     Максимальная память JVM
      */
     private Long jvmMemoryMax;
 }

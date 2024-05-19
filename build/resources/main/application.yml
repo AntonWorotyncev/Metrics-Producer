@@ -1,18 +1,25 @@
-kafka:
-  producer:
-    bootstrap-servers: localhost:29092
-    group-id: metrics-consumer-group
-    auto-offset-reset: earliest
-    value-deserializer: org.springframework.kafka.support.serializer.JsonSerializer
-    properties:
-      isolation.level: read_committed
-  listener:
-    type: batch
 spring:
   application:
     name: MetricsProducerApplication
+  kafka:
+    producer:
+      bootstrap-servers: localhost:29092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      batch-size: 1024
+      acks: 1
+      buffer-memory: 30720000
+      linger-ms: 60000
+      max-block-ms: 10000
+      topic:
+        name: metrics-topic
+        partitions: 1
+        replicas: 1
+
 management:
   endpoints:
     web:
       exposure:
         include: "metrics"
+actuator:
+  default.path: "http://localhost:8080/actuator/"
