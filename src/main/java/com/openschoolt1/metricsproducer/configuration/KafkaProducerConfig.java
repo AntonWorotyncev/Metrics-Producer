@@ -46,10 +46,10 @@ public class KafkaProducerConfig {
     @Value("${spring.kafka.producer.topic.name}")
     private String topicName;
 
-    @Value("${spring.kafka.topic.producer.partitions}")
+    @Value("${spring.kafka.producer.topic.partitions}")
     private int partitions;
 
-    @Value("${spring.kafka.topic.producer.replicas}")
+    @Value("${spring.kafka.producer.topic.replicas}")
     private int replicas;
 
     @Bean
