@@ -52,6 +52,11 @@ public class KafkaProducerConfig {
     @Value("${spring.kafka.producer.topic.replicas}")
     private int replicas;
 
+    @Value("${spring.kafka.producer.acks}")
+    private String acks;
+
+
+
     @Bean
     public ProducerFactory<String, Metric> metricProducerFactory() {
         Map<String, Object> configProps = new HashMap<>();
@@ -62,6 +67,7 @@ public class KafkaProducerConfig {
         configProps.put(ProducerConfig.BATCH_SIZE_CONFIG, batchSize);
         configProps.put(ProducerConfig.BUFFER_MEMORY_CONFIG, bufferMemory);
         configProps.put(ProducerConfig.MAX_BLOCK_MS_CONFIG, maxBlockMs);
+        configProps.put(ProducerConfig.ACKS_CONFIG, acks);
         return new DefaultKafkaProducerFactory<>(configProps);
     }
 
