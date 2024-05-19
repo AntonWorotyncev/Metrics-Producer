@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Metrics Producer",
         description = """ 
                 Микросервис отслеживает
-                и передает в сервис Metrics Consumer метрики работы данного " +
+                и передает в сервис Metrics Consumer метрики работы данного
                 приложения
                 """)
 public class MetricsProducerController {
